@@ -7,15 +7,17 @@ int main(int, char** argv){
   int a0,a1;
   int b0,b1;
 
-
-  std::cout<<"Digite as quatro coordenadas da caixa (X0,X1,Y0,Y1):";
-  std::cin>>a0>>a1>>b0>>b1;
-  while(a1>256 || b1>256){
-    std::cout<<"Coordenadas devem ser valores entre 0 e 256:! Digite novamente:";
-    std::cin>>a0>>a1>>b0>>b1;
-  }
-
   image= cv::imread(argv[1],cv::IMREAD_COLOR);
+  int linhas = image.rows;
+  int colunas = image.cols;
+  std::cout<<"Digite as quatro coordenadas da caixa a0 a1 b0 b1 dentro dos limites \n numero de linhas:"<<linhas<< "\n numero de colunas:"<<colunas<<std::endl;
+  std::cin>>a0>>a1>>b0>>b1;
+
+  
+  while(a1>linhas || b1>colunas || a0>linhas || b0>colunas ){
+    std::cout<<"Coordenadas devem ser valores dentro da imagem! Digite novamente:";
+   std::cin>>a0>>a1>>b0>>b1;
+ }
   if(!image.data)
     std::cout << "nao abriu bolhas.png" << std::endl;
 
