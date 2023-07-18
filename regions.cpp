@@ -23,8 +23,8 @@ int main(int, char** argv){
 
   cv::namedWindow("janela", cv::WINDOW_AUTOSIZE);
 
-  val[0] = 255;   //B
-  val[1] = 255;   //G
+  val[0] = 255; //B
+  val[1] = 255; //G
   val[2] = 255; //R
   
   for(int i=a0;i<a1;i++){
@@ -36,6 +36,6 @@ int main(int, char** argv){
   cv::imshow("janela", image);  
   cv::waitKey();
   
- imwrite("regions.png",image);
+  imwrite("regions.png",image);
   return 0;
 }
